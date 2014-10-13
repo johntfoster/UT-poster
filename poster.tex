@@ -1,0 +1,215 @@
+%\documentclass[landscape,a0b,final,a4resizeable]{a0poster}
+\documentclass[portrait,a0b,final]{a0poster}
+%\documentclass[portrait,a0b,final,a4resizeable]{a0poster}
+%\documentclass[portrait,a0b,final]{a0poster}
+%%% Option "a4resizeable" makes it possible ot resize the
+%   poster by the command: psresize -pa4 poster.ps poster-a4.ps
+%   For final printing, please remove option "a4resizeable" !!
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{pstricks,pst-grad,pst-fill,pst-osci,pst-node,pst-circ,pst-blur,pst-plot,pstricks-add,pst-3dplot}
+\usepackage{graphicx}
+\graphicspath{{./figs/}}
+
+
+\input{./include/mydefs.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definition of some variables and colors
+%\renewcommand{\rho}{\varrho}
+%\renewcommand{\phi}{\varphi}
+\setlength{\columnsep}{3cm}
+\setlength{\columnseprule}{2mm}
+\setlength{\parindent}{0.0cm}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%               Background                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\background}[3]{
+  \newrgbcolor{cgradbegin}{#1}
+  \newrgbcolor{cgradend}{#2}
+  \psframe[fillstyle=gradient,gradend=cgradend,
+  gradbegin=cgradbegin,gradmidpoint=#3](0.,0.)(1.\textwidth,-1.\textheight)
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                Poster                        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{poster}{
+  \begin{center}
+  \begin{minipage}[c]{0.98\textwidth}
+}{
+  \end{minipage} 
+  \end{center}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                pcolumn                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{pcolumn}[1]{
+  \begin{minipage}{#1\textwidth}
+  \begin{center}
+}{
+  \end{center}
+  \end{minipage}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                pbox                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newrgbcolor{lcolor}{0. 0. 0.80}
+\newrgbcolor{gcolor1}{1. 1. 1.}
+\newrgbcolor{gcolor2}{.80 .80 1.}
+
+\newcommand{\pbox}[4]{
+\psshadowbox[#3]{
+\begin{minipage}[t][#2][t]{#1}
+#4
+\end{minipage}
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                Caption                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{caption}
+\DeclareCaptionLabelFormat{mylabel}{\sc Figure #2}
+\DeclareCaptionTextFormat{mycaption}{#1}
+\captionsetup{textformat=mycaption,labelformat=mylabel,labelsep=period,font=normalsize}
+
+%
+% Fix section titles
+\usepackage{titlesec}
+\titleformat{\section}[hang]{\bfseries}
+{\normalsize\thesection.\,}{2pt}{\normalsize}[]
+
+
+\newrgbcolor{ut-gray}{0.2 0.247058824 0.305882353}
+\newrgbcolor{ut-orange1}{0.74901 0.45549 0.}
+\newrgbcolor{lightblue}{0. 0. 0.80}
+\newrgbcolor{white}{1. 1. 1.}
+\newrgbcolor{whiteblue}{.80 .80 1.}
+\newrgbcolor{black}{0. 0. 0.}
+
+\newrgbcolor{ut-orange2}{0.611764706 0.278431373 0.}
+
+\color{ut-gray}
+
+\makeatletter
+\let\old@rule\@rule
+\def\@rule[#1]#2#3{\textcolor{ut-orange1}{\old@rule[#1]{#2}{#3}}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\background{1. 1. 1.}{1. 1. 1.}{0.5}
+
+\vspace*{2cm}
+
+
+
+
+\begin{poster}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%% Header
+%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{pcolumn}{0.98}
+
+\pbox{0.95\textwidth}{}{shadowcolor=ut-gray,linewidth=2mm,framearc=0.3,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=2em}{
+
+%%% Logo 1
+\begin{minipage}[c][9cm][c]{0.2\textwidth}
+  \centering
+  \rule{0.0001cm}{0.0001cm}
+  %\includegraphics[demo,width=12cm,angle=0]{UTwordmark}
+\end{minipage}
+%%% Title
+\begin{minipage}[c][9cm][c]{0.6\textwidth}
+  \begin{center}
+    \color{white}{{\sc \Huge A Good Title}\\[7.5mm]
+    {\sc \Huge and more title}\\[10mm]
+    {\Large John Doe$^{1}$, Jane Doe$^2$} \\[7.5mm]
+    {\large \it $^1$John Doe Organization, USA} \\[3.5mm]
+    {\large \it $^2$Jane Doe Organization, USA}}
+  \end{center}
+\end{minipage}
+%%% UT Logo
+\begin{minipage}[c][9cm][c]{0.2\textwidth}
+   \centering
+    \includegraphics[width=12cm,angle=0]{UTwordmark}
+\end{minipage}
+
+}
+\end{pcolumn}
+\end{center}
+
+\vspace*{1.0cm}
+
+%%% Begin of Multicols-Enviroment
+\begin{multicols}{3}
+
+
+%%% Abstract
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Abstract}}\end{center}}\end{center}
+\vspace*{0.5cm}
+
+\lipsum[1-3]
+
+%%% Section
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
+
+\subsubsection*{Subsection title}
+
+\lipsum[4-6]
+
+%%% Section
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
+
+\subsubsection*{Subsection title}
+
+\lipsum[7-14]
+
+\subsubsection*{Subsection Title}
+
+%%% Section
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
+
+\subsubsection*{Subsection title}
+
+\lipsum[11-24]
+
+
+\nocite{lamport}
+\bibliographystyle{unsrt}
+\bibliography{./include/all}
+
+\end{multicols}
+
+\end{poster}
+
+\end{document}
+

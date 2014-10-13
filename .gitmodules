@@ -1,0 +1,6 @@
+[submodule "latex-include"]
+	path = latex-include
+	url = https://github.com/johntfoster/latex-include.git
+[submodule "include"]
+	path = include
+	url = https://github.com/johntfoster/latex-include.git
