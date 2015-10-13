@@ -103,7 +103,7 @@
 
 
 \newrgbcolor{ut-gray}{0.2 0.247058824 0.305882353}
-\newrgbcolor{ut-orange1}{0.74901 0.45549 0.}
+\newrgbcolor{ut-orange}{0.74901 0.341176471 0.}
 \newrgbcolor{lightblue}{0. 0. 0.80}
 \newrgbcolor{white}{1. 1. 1.}
 \newrgbcolor{whiteblue}{.80 .80 1.}
@@ -115,7 +115,7 @@
 
 \makeatletter
 \let\old@rule\@rule
-\def\@rule[#1]#2#3{\textcolor{ut-orange1}{\old@rule[#1]{#2}{#3}}}
+\def\@rule[#1]#2#3{\textcolor{ut-orange}{\old@rule[#1]{#2}{#3}}}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,13 +139,13 @@
 \begin{center}
 \begin{pcolumn}{0.98}
 
-\pbox{0.95\textwidth}{}{shadowcolor=ut-gray,linewidth=2mm,framearc=0.3,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=2em}{
+\pbox{0.95\textwidth}{}{shadowcolor=ut-gray,linewidth=2mm,framearc=0.3,linecolor=ut-orange2,fillstyle=gradient,gradangle=270,gradbegin=ut-orange,gradend=ut-orange,gradmidpoint=1.0,framesep=2em}{
 
 %%% Logo 1
 \begin{minipage}[c][9cm][c]{0.2\textwidth}
-  \centering
-  \rule{0.0001cm}{0.0001cm}
-  %\includegraphics[demo,width=12cm,angle=0]{UTwordmark}
+  \vspace{4cm}
+  \hspace{-2cm}
+  \includegraphics[width=30cm,angle=0]{informal}
 \end{minipage}
 %%% Title
 \begin{minipage}[c][9cm][c]{0.6\textwidth}
@@ -159,8 +159,9 @@
 \end{minipage}
 %%% UT Logo
 \begin{minipage}[c][9cm][c]{0.2\textwidth}
-   \centering
-    \includegraphics[width=12cm,angle=0]{UTwordmark}
+  \vspace{4cm}
+  \hspace{-9cm}
+  \includegraphics[width=40cm,angle=0]{UT_PGE}
 \end{minipage}
 
 }
@@ -174,20 +175,20 @@
 
 
 %%% Abstract
-\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Abstract}}\end{center}}\end{center}
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange,gradend=ut-orange,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Abstract}}\end{center}}\end{center}
 \vspace*{0.5cm}
 
 \lipsum[1-3]
 
 %%% Section
-\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange,gradend=ut-orange,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
 
 \subsubsection*{Subsection title}
 
 \lipsum[4-6]
 
 %%% Section
-\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange,gradend=ut-orange,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
 
 \subsubsection*{Subsection title}
 
@@ -196,7 +197,7 @@
 \subsubsection*{Subsection Title}
 
 %%% Section
-\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange1,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
+\begin{center}\pbox{0.8\columnwidth}{}{shadowcolor=ut-gray, linewidth=2mm,framearc=0.1,linecolor=ut-orange2,fillstyle=gradient,gradangle=315,gradbegin=ut-orange2,gradend=ut-orange,gradmidpoint=1.0,framesep=1em}{\begin{center}{\sc \Large \color{white}{Section Title}}\end{center}}\end{center}
 
 \subsubsection*{Subsection title}
 
